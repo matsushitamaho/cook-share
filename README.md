@@ -1,24 +1,27 @@
-# README
+# CookShare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 料理レシピを通したコミュニティサイト
+### サイトテーマ
+料理愛好家や料理初心者が集まり、自分のレシピを投稿したり、他の人のレシピにいいねやコメントを残したりする場を提供する
 
-Things you may want to cover:
+### テーマを選んだ理由
+普段から料理をすることが多く、様々なレシピサイトのお世話になっている。
+そこで、そういったレシピサイトを自分自身でも作って見たいと思い、このテーマにした
 
-* Ruby version
+### ターゲットユーザ
+料理愛好家や料理初心者
 
-* System dependencies
+### 主な利用シーン
+- レシピの共有
+- レシピ検索
 
-* Configuration
+## 設計書
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材

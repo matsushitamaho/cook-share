@@ -1,0 +1,4 @@
+<!--管理者はサインインの機能のみが存在-->
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<% end %>

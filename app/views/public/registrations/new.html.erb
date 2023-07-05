@@ -1,5 +1,8 @@
 <div class="container ">
-  <h1 class="row m-5">新規会員登録</h1>
+  <div class="row m-4">
+    <div class="col-12 text-light" style="font-size:70px;">SIGN UP</div>
+    <div class="col-12" style="font-size:25px;">新規会員登録</div>
+  </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>

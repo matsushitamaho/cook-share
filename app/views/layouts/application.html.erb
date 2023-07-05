@@ -7,10 +7,16 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/e3ef32b632.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    
+    <main style="border-top: 2px solid black;">
+      <%= yield %>
+    </main>
+    
+    <%= render "layouts/footer" %>
   </body>
 </html>

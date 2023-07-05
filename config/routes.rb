@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
     resource :customer, only: [:show, :edit, :update] do
       get 'likes',         on: :collection
+      get 'information/edit' => "customers#edit", on: :collection
       get 'leave',        on: :collection
       patch 'withdwaral', on: :collection
     end

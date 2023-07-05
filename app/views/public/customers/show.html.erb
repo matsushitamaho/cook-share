@@ -2,4 +2,31 @@
   <div class="row m-4">
     <div class="col-12 text-light" style="font-size:70px;">MY PAGE</div>
     <div class="col-12" style="font-size:25px;">会員情報</div>
+
+    <div class="row m-5">
+      <table class="table">
+        <tr>
+          <th class="pl-5 bg-light text-dark">名前</th>
+          <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="pl-5 bg-light text-dark">メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div class="col-2 m-5">
+      <div type="button" class="btn btn-outline-secondary nav-link">
+        <%= link_to "編集する", "/customer/information/edit", class: 'nav-link fa-solid fa-pen', style: 'color: black;'%>
+      </div>
+    </div>
+    
+    <div class="col-2 m-5">
+      <div type="button" class="btn btn-outline-secondary nav-link">
+        <%= link_to "いいね一覧", "/customer/likes", class: 'nav-link fa-solid fa-heart', style: 'color: black;'%>
+      </div>
+    </div>
+    
   </div>
+</div>

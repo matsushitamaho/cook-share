@@ -1,2 +1,8 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container mx-auto col-8 " style="margin-top: 200px; margin-bottom: 200px;">
+  <div class="row m-5" style="text-align: center;">
+    <div class="p-0">
+      <%= link_to "会員一覧へ", "/admin/customers",class: "btn btn-outline-secondary",style: 'width: 200px; margin-right: 50px; padding: 30px 0' %>
+      <%= link_to "コメント一覧へ","/admin/post_comments" ,method: :patch, class: "btn btn-outline-secondary",style: 'width: 200px;padding: 30px 0' %>
+    </div>
+  </div>
+</div>

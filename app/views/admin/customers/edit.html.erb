@@ -1,2 +1,33 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container ">
+  <div class="row m-4">
+    <div class="col-12 text-light" style="font-size:70px;">EDIT</div>
+    <div class="col-12" style="font-size:25px;">
+      <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
+    </div>
+
+    <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+    <table class="row m-5">
+      <tr>
+        <th class="py-2 col-3">名前</th>
+        <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
+      </tr>
+      <tr>
+        <th class="py-2 col-3">メールアドレス</th>
+        <td class="py-2 col-6"><%= f.text_field :email, class: "col-9" %></td>
+      </tr>
+      <tr>
+        <th class="py-2 col-3">会員ステータス</th>
+        <td class="py-2 col-6">
+          <%= f.radio_button :is_deleted, false %>有効  <%= f.radio_button :is_deleted, true %>無効
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= button_tag type: "submit", class: "btn btn-outline-secondary nav-link mt-5 py-2 col-6", style: 'color: black;' do %>
+            <i class="fa-solid fa-rotate-right" style="color: #000000;">更新する</i>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>

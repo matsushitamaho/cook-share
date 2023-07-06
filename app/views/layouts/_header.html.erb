@@ -1,5 +1,5 @@
 <% if admin_signed_in? %>
-  <% if repuest.fullpath.include? "/admin" %>
+  <% if request.fullpath.include? "/admin" %>
   <!--adminのheader-->
     <header>
       <nav class="navbar navbar-expand-lg" >
@@ -7,11 +7,11 @@
             <a class="m-3" href="/" >
               <%= image_tag "logo2",size: "100x100" %>
             </a>
-          
+
           <div>
-            <ul class="navbar ml-auto m-5" >
+            <ul class="navbar-nav ml-auto m-5">
               <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
-                <%= link_to "ユーザ一覧", "/admin/customers", class: 'nav-link', style: 'color: black;' %>
+                <%= link_to "会員一覧", "/admin/customers", class: 'nav-link', style: 'color: black;' %>
               </li>
               <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
                 <%= link_to "コメント一覧", "/admin/postcomments", class: 'nav-link', style: 'color: black;' %>
@@ -29,7 +29,7 @@
             <a class="m-3" href="/" >
               <%= image_tag "logo2",size: "100x100" %>
             </a>
-            
+
             <div>
               <ul class="navbar-nav ml-auto m-5">
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
@@ -64,7 +64,7 @@
             <a class="m-3" href="/" >
               <%= image_tag "logo2",size: "100x100" %>
             </a>
-            
+
             <div>
               <ul class="navbar-nav ml-auto m-5">
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
@@ -98,7 +98,7 @@
             <a class="m-3" href="/" >
               <%= image_tag "logo2",size: "100x100" %>
             </a>
-            
+
             <div>
               <ul class="navbar-nav ml-auto m-5">
                 <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >

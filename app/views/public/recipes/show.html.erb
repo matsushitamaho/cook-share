@@ -1,2 +1,9 @@
-<h1>Public::Recipes#show</h1>
-<p>Find me in app/views/public/recipes/show.html.erb</p>
+<%= image_tag @recipe.image, width:400, heigth:250,class: "img-resize" %>
+<p><%= @recipe.name %></p>
+<p><%= @recipe.time %></p>
+<p><%= @recipe.material %></p>
+<p><%= @recipe.make %></p>
+<% if @recipe.customer == current_customer %>
+  <%= link_to "編集する", edit_recipe_path(@recipe),class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+  <%= link_to "削除する", recipe_path(@recipe), method: :delete, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+<% end %>

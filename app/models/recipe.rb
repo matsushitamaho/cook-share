@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  has_one_attached :image
+  
   validates :name,     presence: true
   validates :time,     presence: true
   validates :material, presence: true

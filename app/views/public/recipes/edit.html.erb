@@ -1,2 +1,41 @@
-<h1>Public::Recipes#edit</h1>
-<p>Find me in app/views/public/recipes/edit.html.erb</p>
+<div class="container">
+  <div class="row m-4">
+    <div class="col-12 text-light" style="font-size:70px;">EDIT</div>
+    <div class="col-12" style="font-size:25px;">レシピ編集</div>
+
+    <%= form_with model: @recipe, local: true do |f| %>
+    <div class="row m-4">
+      <%= f.label :image, "レシピ画像", class: "col-2"%>
+      <%= f.file_field :image, class: "col-7" %>
+    </div>
+
+    <div class="row m-4">
+        <%= f.label :name, "レシピ名", class: "col-2" %>
+        <%= f.text_field :name, placeholder: "レシピ名", class: "col-3" %>
+    </div>
+
+    <div class="row m-4">
+      <%= f.label :time, "所要時間", class: "col-2" %>
+      <%= f.select :time, ['15分以内', '30分', '45分', '60分以上'], {include_blank: '選択ボックス'}, class: 'sample col-2' %>
+    </div>
+
+    <div class="row m-4">
+      <%= f.label :material, "材料(2人分)", class: "col-2" %>
+      <%= f.text_area :material, class: "col-7", size: "20x10" %>
+    </div>
+
+    <div class="row m-4">
+      <%= f.label :make, "作り方", class: "col-2" %>
+      <%= f.text_area :make, class: "col-7" ,size: "20x10" %>
+    </div>
+
+    <div class="row m-4">
+      <div class="col-2">
+      </div>
+      <div class="col">
+        <%= f.submit "更新する",class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

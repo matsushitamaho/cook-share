@@ -2,4 +2,21 @@
   <div class="row m-4">
     <div class="col-12 text-light" style="font-size:70px;">RECIPE</div>
     <div class="col-12" style="font-size:25px;">レシピ一覧</div>
+    
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+      <div class="card col-sm-auto m-1">
+        <%= link_to recipe_path(recipe) do %>
+          <p class="img-wrap"><%= image_tag recipe.image, width:200, heigth:140, class: "img-resize sized m-3" %></p>
+        <% end %>
+        <div>
+          <p><%= recipe.name %></p>
+          <p><%= recipe.time %></p>
+          <p><%= recipe.material %></p>
+          <p><%= recipe.make %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
+</dev>

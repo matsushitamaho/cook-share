@@ -1,5 +1,5 @@
 class Public::RecipesController < ApplicationController
-  before_action :authenticate_customer!, only:  [:new, :edit, :create, :update]
+  before_action :authenticate_customer!, only:  [:new, :edit, :create, :update, :destroy]
 
   def index
     @recipes = Recipe.all

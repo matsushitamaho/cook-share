@@ -74,3 +74,4 @@ end
 
   gem 'devise'
   gem 'bootstrap', '~> 5.0.2'
+  gem 'kaminari','~> 1.2.1'

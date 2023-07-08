@@ -19,6 +19,19 @@
               <% end %>
               <div>
                 <p class="px-3"><%= recipe.name %></p>
+                <% if recipe.favorited_by?(current_customer) %>
+                  <p>
+                    <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
+                      ♥<%= recipe.favorites.count %>
+                    <% end %>
+                  </p>
+                <% else %>
+                  <p>
+                    <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
+                       ♡<%= recipe.favorites.count %>
+                    <% end %>
+                  </p>
+                <% end %>
               </div>
             </div>
           </div>

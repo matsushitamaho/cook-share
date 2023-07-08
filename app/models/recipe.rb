@@ -1,10 +1,15 @@
 class Recipe < ApplicationRecord
   has_one_attached :image
+  has_many :favorites, dependent: :destroy
   
   validates :name,     presence: true
   validates :time,     presence: true
   validates :material, presence: true
   validates :make,     presence: true
+  
+  def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
+  end
   
   def get_image
     unless image.attached?

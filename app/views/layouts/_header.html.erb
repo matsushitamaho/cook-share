@@ -9,15 +9,17 @@
             </a>
 
           <div>
-            <ul class="navbar-nav ml-auto m-2">
-              <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+            <ul class="navbar-nav ml-auto m-2 d-flex">
+              <li class="nav-item ml-3">
                 <%= link_to "会員一覧", "/admin/customers", class: 'nav-link', style: 'color: black;' %>
               </li>
-              <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+              <li class="nav-item ml-3">
                 <%= link_to "コメント一覧", "/admin/post_comments", class: 'nav-link', style: 'color: black;' %>
               </li>
-              <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link', style: 'color: black;' %>
+              <li class="nav-item ml-3 mt-1">
+                <%= button_to destroy_admin_session_path, method: :delete, class: 'btn d-flex align-items-center', style: 'color: black; border-color:white;' do %>
+                  <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                <% end %>
               </li>
             </ul>
           </div>
@@ -34,24 +36,26 @@
             </a>
 
             <div>
-              <ul class="navbar-nav ml-auto m-2">
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+              <ul class="navbar-nav ml-auto m-2 d-flex">
+                <li class="nav-item ml-3">
                   <%= link_to "Top", "/", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "Cook Shareとは", "/about", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "レシピ一覧", "/recipes", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-user pt-2 px-2 nav-link" style="color: black;" href="/customer"></a>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-heart pt-2 px-2 nav-link" style="color: black;" href="/customer/likes"></a>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link', style: 'color: black;' %>
+                <li class="nav-item ml-3">
+                  <%= button_to destroy_customer_session_path, method: :delete, class: 'btn d-flex align-items-center', style: 'color: black; border-color:white;' do %>
+                    <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                  <% end %>
                 </li>
               </ul>
             </div>
@@ -69,24 +73,26 @@
             </a>
 
             <div>
-              <ul class="navbar-nav ml-auto m-2">
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+              <ul class="navbar-nav ml-auto m-2 d-flex">
+                <li class="nav-item ml-3">
                   <%= link_to "Top", "/", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "Cook Shareとは", "/about", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "レシピ一覧", "/recipes", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-user pt-2 px-2 nav-link" style="color: black;" href="/customer"></a>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-heart pt-2 px-2 nav-link" style="color: black;" href="/customer/likes"></a>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link', style: 'color: black;' %>
+                <li class="nav-item ml-3">
+                  <%= button_to destroy_customer_session_path, method: :delete, class: 'btn d-flex align-items-center', style: 'color: black; border-color:white;' do %>
+                    <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
+                  <% end %>
                 </li>
               </ul>
             </div>
@@ -104,19 +110,19 @@
 
             <div>
               <ul class="navbar-nav ml-auto m-2">
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "Top", "/", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "Cook Shareとは", "/about", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <%= link_to "レシピ一覧", "/recipes", class: 'nav-link', style: 'color: black;' %>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;" >
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-user-plus pt-2 px-2 nav-link" style="color: black;" href="/customers/sign_up"></a>
                 </li>
-                <li class="nav-item ml-3" style="border-style:solid; border-width:2px; border-color:white;">
+                <li class="nav-item ml-3">
                   <a class="fa-solid fa-right-to-bracket pt-2 px-2 nav-link" style="color: black;" href= "/customers/sign_in"></a>
                 </li>
               </ul>

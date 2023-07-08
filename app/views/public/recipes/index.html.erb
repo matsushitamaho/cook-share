@@ -7,7 +7,7 @@
       <% @recipes.each do |recipe| %>
       <div class="card col-sm-auto m-1">
         <%= link_to recipe_path(recipe) do %>
-          <p class="img-wrap"><%= image_tag recipe.image, width:200, heigth:140, class: "img-resize sized m-3" %></p>
+          <%= image_tag recipe.image, width:200, heigth:140, class: "img-resize sized m-3" %>
         <% end %>
         <div>
           <p><%= recipe.name %></p>

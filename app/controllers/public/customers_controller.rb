@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   def leave
   end
 
-  def withdrawal
+  def withdwaral
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session

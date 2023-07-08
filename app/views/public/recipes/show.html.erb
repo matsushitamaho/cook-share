@@ -1,9 +1,45 @@
-<%= image_tag @recipe.image, width:400, heigth:250,class: "img-resize" %>
-<p><%= @recipe.name %></p>
-<p><%= @recipe.time %></p>
-<p><%= @recipe.material %></p>
-<p><%= @recipe.make %></p>
-<% if @recipe.customer_id == current_customer %>
-  <%= link_to "編集する", edit_recipe_path(@recipe),class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
-  <%= link_to "削除する", recipe_path(@recipe), method: :delete, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
-<% end %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <%= image_tag @recipe.image, width:400, heigth:250,class: "img-resize, rounded mx-auto d-block" %>
+      <div class="d-flex">
+        <h1 class="mt-5 px-5 border-bottom border-3"><%= @recipe.name %></h1>
+      </div>
+      <h5 class="mx-5"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= @recipe.time %></h5>
+      
+      <table class="m-5">
+        <tr>
+          <th style="width:80px;">材料</th>
+          <td><%= @recipe.material %></td>
+        </tr>
+      </table>
+      
+      <table class="m-5">
+        <tr>
+          <th style="width:80px;">作り方</th>
+          <td><%= @recipe.make %></td>
+        </tr>
+      </table>
+      
+      
+      <div class="row mt-5 mb-3 justify-content-center">
+        <% if current_customer && current_customer.id == @recipe.customer_id %>
+        <div class="col-2">
+          <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+        </div>
+        <div class="col-2">
+          <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+        </div>
+        <div class="col-2">
+          <%= button_to "削除", recipe_path(@recipe), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-secondary nav-link", style: 'color: black; width: 120px;', form: { class: "d-inline" } %>
+        </div>
+       <% else %>
+       <div class="col-2">
+          <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+       </div>
+       <% end %>
+      </div>
+    </div>
+    <%= render "public/recipes/ns" %>
+  </div>
+</div>

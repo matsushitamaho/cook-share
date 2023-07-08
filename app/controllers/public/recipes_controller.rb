@@ -14,7 +14,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def edit
-    if current_user
+    if current_customer
       @recipe = Recipe.find(params[:id])
     end
   end
@@ -39,9 +39,9 @@ class Public::RecipesController < ApplicationController
   end
 
   def destroy
-    @recips = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to resipe_path(@recipe)
+    redirect_to recipes_path
   end
 
   private

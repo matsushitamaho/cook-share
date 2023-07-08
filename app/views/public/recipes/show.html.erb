@@ -3,7 +3,7 @@
 <p><%= @recipe.time %></p>
 <p><%= @recipe.material %></p>
 <p><%= @recipe.make %></p>
-<% if @recipe.customer == current_customer %>
+<% if @recipe.customer_id == current_customer %>
   <%= link_to "編集する", edit_recipe_path(@recipe),class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
   <%= link_to "削除する", recipe_path(@recipe), method: :delete, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
 <% end %>

@@ -5,11 +5,32 @@
     </div>
   </div>
   <div class="row my-5">
-    <!--新着レシピ4件or余裕があればランキング-->
+  <!-- 新着レシピ4件 or 余裕があればランキング -->
     <div class="col-8">
       <h3>新着レシピ</h3>
+        <div class="row my-4">
+          <% @recipes.each do |recipe| %>
+          <div class="col-md-6 col-lg-3">
+            <div class="card m-1">
+              <%= link_to recipe_path(recipe) do %>
+              <div class="img-wrap">
+                <%= image_tag recipe.image, width:150, height:100, class: "img-resize sized m-3" %>
+              </div>
+              <% end %>
+              <div>
+                <p class="px-3"><%= recipe.name %></p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="my-3 text-right">
+          <%= link_to "レシピ一覧へ▷▷", recipes_path, class: "nav-link", style: "color: black;" %>
+        </div>
     </div>
-    <!--新規投稿ボタン&検索機能-->
+
+
+  <!-- 新規投稿ボタン&検索機能 -->
     <div class="col-4">
       <div type="button" class="btn btn-outline-secondary nav-link">
         <%= link_to "レシピを投稿する▷▷", "/recipes/new", class: 'nav-link fa-solid fa-utensils', style: 'color: black;'  %>

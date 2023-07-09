@@ -7,7 +7,10 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
 
-  def likes
+  def favorites
+    @customer = current_customer
+    favorites = Favorite.where(customer_id: @customer.id).pluck(:recipe_id)
+    @favorite_recipes = Recipe.find(favorites)
   end
 
   def update

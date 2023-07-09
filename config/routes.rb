@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   namespace :admin do
     root to: "homes#top"
     resources :customers,     only: [:index, :show, :edit, :update]
@@ -23,7 +23,9 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:new, :create, :destroy]
     end
     resource :customer, only: [:show, :edit, :update] do
-      get 'likes',         on: :collection
+      member do
+        get 'favorites'
+      end
       get 'information/edit' => "customers#edit", on: :collection
       get 'leave',        on: :collection
       patch 'withdwaral', on: :collection

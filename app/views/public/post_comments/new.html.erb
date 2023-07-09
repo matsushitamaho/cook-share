@@ -1,1 +1,17 @@
-postcomment#new
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-light" style="font-size: 70px;">COMMENT</div>
+    <div class="col-12" style="font-size: 25px;">コメントする</div>
+  </div>
+
+  <div class="row my-5 justify-content-center">
+    <div class="col-8">
+      <%= form_with model: [@recipe, @post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "form-control" %>
+        <div class="text-center m-5">
+          <%= f.submit "送信する", class: "btn btn-outline-secondary", style: 'color: black;' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

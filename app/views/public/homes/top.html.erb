@@ -14,24 +14,31 @@
             <div class="card m-1">
               <%= link_to recipe_path(recipe) do %>
               <div class="img-wrap">
-                <%= image_tag recipe.image, width:150, height:100, class: "img-resize sized m-3" %>
+                <%= image_tag recipe.image, width: 150, height: 100, class: "img-resize sized m-3" %>
               </div>
               <% end %>
-              <div>
-                <p class="px-3"><%= recipe.name %></p>
+              <div class="px-3">
+                <p><%= recipe.name %></p>
+                <p class="mb-0"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= recipe.time %></p>
+              </div>
+              <div class="d-flex">
                 <% if recipe.favorited_by?(current_customer) %>
-                  <p>
-                    <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
-                      ♥<%= recipe.favorites.count %>
-                    <% end %>
-                  </p>
+                <p>
+                  <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
+                    ♥<%= recipe.favorites.count %>
+                  <% end %>
+                </p>
                 <% else %>
-                  <p>
-                    <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
-                       ♡<%= recipe.favorites.count %>
-                    <% end %>
-                  </p>
+                <p>
+                  <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
+                    ♡<%= recipe.favorites.count %>
+                  <% end %>
+                </p>
                 <% end %>
+                <div class="mt-2" style="margin-left:15px;">
+                  <i class="fa-regular fa-comment" style="color: #000000;"></i>
+                  <%= recipe.post_comments.count %>
+                </div>
               </div>
             </div>
           </div>

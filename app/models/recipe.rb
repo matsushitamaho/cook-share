@@ -8,7 +8,11 @@ class Recipe < ApplicationRecord
   validates :make,     presence: true
   
   def favorited_by?(customer)
-    favorites.where(customer_id: customer.id).exists?
+    if customer.present?
+      favorites.where(customer_id: customer.id).exists?
+    else
+      false
+    end
   end
   
   def get_image

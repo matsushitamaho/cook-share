@@ -18,10 +18,12 @@ Rails.application.routes.draw do
   scope module: 'public' do
     root to: "homes#top"
     get "/about" => "homes#about"
-    resources :recipes,         only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resource :favorites,      only: [:create, :destroy]
+    resources :recipes, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:new, :create, :destroy]
-      get "search" => "searches#search"
+      collection do
+        get 'search', as: 'recipe_search'
+      end
     end
     resource :customer, only: [:show, :edit, :update] do
       member do

@@ -1,6 +1,18 @@
-<div class="col-4">
-  <div type="button" class="btn btn-outline-secondary nav-link">
-    <%= link_to "レシピを投稿する▷▷", "/recipes/new", class: 'nav-link fa-solid fa-utensils', style: 'color: black;'  %>
+<div class="col-4" style="padding-left:70px;">
+  <div class="row">
+    <div type="button" class="btn btn-outline-secondary nav-link" style="width:300px;">
+      <%= link_to "レシピを投稿する▷▷", "/recipes/new", class: 'nav-link fa-solid fa-utensils', style: 'color: black;'  %>
+    </div>
+  </div>
+  
+  <div class="row" style="margin-top:100px;">
+    <h4>レシピを検索する</h4>
+      <%= form_tag(recipe_search_recipes_path, method: :get, class: 'search-form') do %>
+        <%= label_tag :query, '' %>
+        <%= text_field_tag :query, params[:query],placeholder: "レシピ名", style: "width:200px;" %>
+        <%= button_tag type: 'submit', class: 'search-button' do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
   </div>
 </div>
-<!--検索機能-->

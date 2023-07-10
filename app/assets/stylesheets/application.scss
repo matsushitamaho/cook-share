@@ -41,3 +41,35 @@
   padding-top: 10px;
   margin-top: 60px; /* ヘッダーの高さに合わせてマージンを設定 */
 }
+
+/*↓吹き出し部分のレイアウト↓*/
+.balloon-set-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.balloon-set-box.left { /* 左 */
+  flex-direction: row;
+}
+
+.balloon1{
+  position: relative;
+  padding: 20px;
+  background-color: #FAF1E6;
+  margin-top: 20px;
+  border-radius: 10px;         /* 角丸を指定 */
+}
+/* 三角アイコン - 普通の吹き出し */
+.balloon1::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #FAF1E6;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+/*↑吹き出し部分のレイアウト↑*/

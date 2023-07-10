@@ -35,55 +35,47 @@
         </tr>
       </table>
 
-
       <div class="row mt-5 mb-5 justify-content-center">
         <% if current_customer && current_customer.id == @recipe.customer_id %>
-        <div class="col-2">
-          <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
-        </div>
-        <div class="col-2">
-          <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
-        </div>
-        <div class="col-2">
-          <%= button_to "削除", recipe_path(@recipe), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-secondary nav-link", style: 'color: black; width: 120px;', form: { class: "d-inline" } %>
-        </div>
-      <% else %>
-      <div class="col-2">
-          <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
-      </div>
-      <% end %>
+          <div class="col-2">
+            <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+          </div>
+          <div class="col-2">
+            <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+          </div>
+          <div class="col-2">
+            <%= button_to "削除", recipe_path(@recipe), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-secondary nav-link", style: 'color: black; width: 120px;', form: { class: "d-inline" } %>
+          </div>
+        <% else %>
+          <div class="col-2">
+            <%= link_to "戻る", recipes_path, class: "btn btn-outline-secondary nav-link", style: 'color: black;' %>
+          </div>
+        <% end %>
 
-      <div class="m-5 d-flex" style="padding-top:150px;">
-        <h4>【レビュー】</h4>
-        <p class=" mt-2">(<%= @recipe.post_comments.count %>件)</p>
-        <%= link_to "コメントする", new_recipe_post_comment_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;width: 130px; margin-left:50px;' %>
-      </div>
-        <table class="table mb-5">
-          <thead class="bg-light">
-            <tr>
-              <th>会員名</th>
-              <th style="width:500px;">コメント</th>
-              <th style="width:120px;"></th>
-            </tr>
-          </thead>
-          <tbody>
+
+          <div class="mt-5 mb-2 d-flex" style="padding-top:150px;">
+            <h4>【レビュー】</h4>
+            <p class=" mt-2">(<%= @recipe.post_comments.count %>件)</p>
+            <%= link_to "コメントする", new_recipe_post_comment_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;width: 130px; margin-left:50px;' %>
+          </div>
+
           <% @recipe.post_comments.each do |post_comment| %>
-            <tr>
-              <td>
+            <div class="balloon-set-box left">
+              <div class="balloon1">
                 <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
-              </td>
-              <td>
-                <%= post_comment.comment %>
-              </td>
-              <td>
-                <% if current_customer && post_comment.customer == current_customer %>
-                  <%= button_to "削除", recipe_post_comment_path(post_comment.recipe, post_comment), method: :delete, class: "btn btn-outline-secondary nav-link py-1", style: 'color: black; width: 70px;', form: { class: "d-inline" } %>
-                <% end %>
-              </td>
-            </tr>
+                <div class="row justify-content-center" style="width:700px;">
+                  <div class="col" style="max-width: 600px;">
+                    <%= post_comment.comment %>
+                  </div>
+                  <div class="col-auto ">
+                    <% if current_customer && post_comment.customer == current_customer %>
+                      <%= button_to "削除", recipe_post_comment_path(post_comment.recipe, post_comment), method: :delete, class: "btn btn-outline-secondary nav-link py-1", style: 'color: black; width: 70px;', form: { class: "d-inline" } %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
-          </tbody>
-        </table>
       </div>
     </div>
     <%= render "public/recipes/ns" %>

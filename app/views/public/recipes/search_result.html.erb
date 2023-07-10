@@ -3,18 +3,19 @@
     <div class="col-12 text-light" style="font-size:70px;">SEARCH</div>
     <div class="col-12" style="font-size:25px;">検索結果</div>
 
-<% if @recipes.any? %>
-  <div class="row my-3">
-        <div class="col-8">
-            <div class="row">
-              <% @recipes.each do |recipe| %>
-              <div class="col-md-6 col-lg-3">
-                <div class="card m-1">
-                  <%= link_to recipe_path(recipe) do %>
+    <!--検索したレシピがあった場合-->
+    <% if @recipes.any? %>
+    <div class="row my-3">
+      <div class="col-8">
+        <div class="row">
+          <% @recipes.each do |recipe| %>
+            <div class="col-md-6 col-lg-3">
+              <div class="card m-1">
+                <%= link_to recipe_path(recipe) do %>
                   <div class="img-wrap">
                     <%= image_tag recipe.image, width: 150, height: 100, class: "img-resize sized m-3" %>
                   </div>
-                  <% end %>
+                <% end %>
                   <div class="px-3">
                     <p><%= recipe.name %></p>
                     <p class="mb-0"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= recipe.time %></p>
@@ -26,28 +27,36 @@
                         ♥<%= recipe.favorites.count %>
                       <% end %>
                     </p>
-                  <% else %>
+                    <% else %>
                     <p>
                       <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
                         ♡<%= recipe.favorites.count %>
                       <% end %>
                     </p>
-                  <% end %>
+                    <% end %>
                     <div class="mt-2" style="margin-left:15px;">
                       <i class="fa-regular fa-comment" style="color: #000000;"></i>
-                    <%= recipe.post_comments.count %>
+                      <%= recipe.post_comments.count %>
                     </div>
                   </div>
-                </div>
               </div>
-              <% end %>
             </div>
-            
+          <% end %>
+        </div>
+      </div>
+        <%= render "public/recipes/ns" %>
+    </div>
+    
+    <!--レシピが見つからなかった時-->
+    <% else %>
+      <div class="row my-3">
+        <div class="col-8">
+          <div class="row" style="margin-top:100px; padding-left:100px;">
+            <h4>レシピは見つかりませんでした。</h4>
+          </div>
         </div>
           <%= render "public/recipes/ns" %>
       </div>
-<% else %>
-  <p>No results found.</p>
-<% end %>
-</div>
+    <% end %>
+  </div>
 </div>

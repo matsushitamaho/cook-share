@@ -42,6 +42,11 @@
   margin-top: 60px; /* ヘッダーの高さに合わせてマージンを設定 */
 }
 
+.card {
+  background-color: #F5F5F5;
+  border-color: #F5F5F5;
+}
+
 /*↓吹き出し部分のレイアウト↓*/
 .balloon-set-box {
   display: flex;

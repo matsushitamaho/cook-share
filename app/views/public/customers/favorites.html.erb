@@ -3,41 +3,43 @@
     <div class="col-12 text-light" style="font-size:70px;">FAVORITES</div>
     <div class="col-12" style="font-size:25px;">いいね一覧</div>
   </div>
-  
-  <div class="row my-3">
+
+  <div class="row my-3" style="padding-bottom:50px;">
         <div class="col-8">
-            <div class="row">
-              <% @favorite_recipes.each do |recipe| %>
-              <div class="col-md-6 col-lg-3">
-                <div class="card m-1">
-                  <%= link_to recipe_path(recipe) do %>
+          <div class="row">
+            <% @favorite_recipes.each do |recipe| %>
+              <div class="card col-sm-auto m-2">
+                <%= link_to recipe_path(recipe) do %>
                   <div class="img-wrap">
-                    <%= image_tag recipe.image, width: 150, height: 100, class: "img-resize sized m-3" %>
+                    <%= image_tag recipe.image, width: 220, height: 160, class: "img-resize sized mb-3 pt-3" %>
                   </div>
-                  <% end %>
-                  <div class="px-3">
-                    <p><%= recipe.name %></p>
+                <% end %>
+                  <div class="px-1">
+                    <h4><%= recipe.name %></h4>
                     <p class="mb-0"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= recipe.time %></p>
                   </div>
-                  <% if recipe.favorited_by?(current_customer) %>
-                    <p>
-                      <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
-                        ♥<%= recipe.favorites.count %>
-                      <% end %>
-                    </p>
-                  <% else %>
-                    <p>
-                      <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
-                        ♡<%= recipe.favorites.count %>
-                      <% end %>
-                    </p>
-                  <% end %>
+                  <div class="d-flex my-3">
+                    <% if recipe.favorited_by?(current_customer) %>
+                      <p>
+                        <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
+                          ♥<%= recipe.favorites.count %>
+                        <% end %>
+                      </p>
+                    <% else %>
+                      <p>
+                        <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
+                          ♡<%= recipe.favorites.count %>
+                        <% end %>
+                      </p>
+                    <% end %>
+                      <div class="mt-2" style="margin-left:15px;">
+                        <i class="fa-regular fa-comment" style="color: #000000;"></i>
+                        <%= recipe.post_comments.count %>
+                      </div>
+                  </div>
                 </div>
-              </div>
               <% end %>
-
             </div>
-            
         </div>
-          <%= render "public/recipes/ns" %>
+        <%= render "public/recipes/ns" %>
       </div>

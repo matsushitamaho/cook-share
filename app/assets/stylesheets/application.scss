@@ -14,3 +14,32 @@
  *= require_self
  */
 @import "bootstrap";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 6px;
+}
+
+.body-content {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.pagination {
+  z-index: 0; /* ページネーションを背面に配置 */
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 30px;
+}

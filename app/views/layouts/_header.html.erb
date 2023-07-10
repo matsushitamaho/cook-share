@@ -1,7 +1,7 @@
 <% if admin_signed_in? %>
   <% if request.fullpath.include? "/admin" %>
   <!--adminのheader-->
-    <header>
+    <header class="header">
       <nav class="navbar navbar-expand-lg" >
           <div class="container-fluid" >
             <a href="/" >
@@ -28,7 +28,7 @@
     </header>
     <% else %>
     <!--customerのheaderを返す -->
-      <header>
+      <header class="header">
         <nav class="navbar navbar-expand-lg" >
           <div class="container-fluid" >
             <a href="/" >
@@ -65,7 +65,7 @@
       <% end %>
     <% elsif customer_signed_in? %>
     <!--customerがログインしているとき-->
-      <header>
+      <header class="header">
         <nav class="navbar navbar-expand-lg" >
           <div class="container-fluid" >
             <a href="/" >
@@ -101,7 +101,7 @@
       </header>
     <% else %>
     <!-- customerがログインしていない時-->
-      <header>
+      <header class="header">
         <nav class="navbar navbar-expand-lg" >
           <div class="container-fluid" >
             <a href="/" >

@@ -26,6 +26,14 @@
   z-index: 1; /* ヘッダーを最前面に配置 */
 }
 
+body {
+  font-family: "M PLUS Rounded 1c";
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;/*body全体の表示領域を確保*/
+}
+
 .search-form {
   display: flex;
   align-items: center;
@@ -38,6 +46,7 @@
 }
 
 .body-content {
+  flex: 1;
   padding-top: 10px;
   margin-top: 60px; /* ヘッダーの高さに合わせてマージンを設定 */
 }

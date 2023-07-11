@@ -10,7 +10,7 @@
           <span style="font-size: 25px; margin-left: 30px;">
             <% if @recipe.favorited_by?(current_customer) %>
               <%= button_to recipe_favorites_path(@recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
-                ♥<%= @recipe.favorites.count %>
+                <div style="color:red">♥</div><%= @recipe.favorites.count %>
               <% end %>
             <% else %>
               <%= button_to recipe_favorites_path(@recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:white;' do %>
@@ -62,7 +62,7 @@
           <div class="mt-5 mb-2 d-flex" style="padding-top:150px;">
             <h4>【レビュー】</h4>
             <p class=" mt-2">(<%= @recipe.post_comments.count %>件)</p>
-            <%= link_to "コメントする", new_recipe_post_comment_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;width: 130px; margin-left:50px;' %>
+            <%= link_to "コメントする", new_recipe_post_comment_path(@recipe), class: "btn btn-outline-secondary nav-link", style: 'color: black;width: 180px; margin-left:50px;' %>
           </div>
 
           <% @recipe.post_comments.each do |post_comment| %>

@@ -8,7 +8,7 @@
         <div class="col-8">
           <div class="row">
             <% @favorite_recipes.each do |recipe| %>
-              <div class="card col-sm-auto m-2">
+              <div class="card col-sm-auto m-2 float1">
                 <%= link_to recipe_path(recipe) do %>
                   <div class="img-wrap">
                     <%= image_tag recipe.image, width: 220, height: 160, class: "img-resize sized mb-3 pt-3" %>
@@ -22,7 +22,7 @@
                     <% if recipe.favorited_by?(current_customer) %>
                       <p>
                         <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
-                          ♥<%= recipe.favorites.count %>
+                          <div style="color:red">♥</div><%= recipe.favorites.count %>
                         <% end %>
                       </p>
                     <% else %>

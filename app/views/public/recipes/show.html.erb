@@ -62,7 +62,7 @@
           <% @recipe.post_comments.each do |post_comment| %>
             <div class="balloon-set-box left">
               <div class="balloon1">
-                <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %>
+                <%= post_comment.customer.last_name %><%= post_comment.customer.first_name %> (<%= post_comment.created_at.strftime('%Y/%m/%d') %>)
                 <div class="row justify-content-center" style="width:700px;">
                   <div class="col" style="max-width: 600px;">
                     <%= post_comment.comment %>

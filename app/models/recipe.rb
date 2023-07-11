@@ -2,6 +2,8 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   has_many :favorites,      dependent: :destroy
   has_many :post_comments,  dependent: :destroy
+  has_many :recipe_tags,    dependent: :destroy
+  has_many :tags,           through: :recipe_tags
   
   validates :name,     presence: true
   validates :time,     presence: true

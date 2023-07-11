@@ -1,18 +1,33 @@
-<div class="col-4" style="padding-left:70px;">
+<div class="col-4" style="padding-left:30px;">
   <div class="row">
     <div type="button" class="btn btn-outline-secondary nav-link" style="width:300px;">
       <%= link_to "レシピを投稿する▷▷", "/recipes/new", class: 'nav-link fa-solid fa-utensils', style: 'color: black;'  %>
     </div>
   </div>
-  
-  <div class="row" style="margin-top:100px;">
+
+  <div class="row" style="margin-top:100px; padding:50px; background-color: #F5F5F5;">
     <h4>レシピを検索する</h4>
       <%= form_tag(recipe_search_recipes_path, method: :get, class: 'search-form') do %>
         <%= label_tag :query, '' %>
-        <%= text_field_tag :query, params[:query],placeholder: "レシピ名", style: "width:200px;" %>
+        <%= text_field_tag :query, params[:query],placeholder: "レシピ名", style: "width:250px;" %>
         <%= button_tag type: 'submit', class: 'search-button' do %>
           <i class="fas fa-search"></i>
         <% end %>
       <% end %>
   </div>
+
+  <div class="row" style="padding:50px; background-color: #F5F5F5;">
+    <h4>カテゴリで検索する</h4>
+    <%= form_tag recipes_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :tag_id,
+                     options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                     {
+                       prompt: 'カテゴリで検索',
+                       onchange: 'submit(this.form);',
+                       style: 'width: 250px;'
+                     }
+      %>
+    <% end %>
+  </div>
+
 </div>

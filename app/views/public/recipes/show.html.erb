@@ -20,6 +20,12 @@
           </span>
         </h1>
       </div>
+      
+      <% @recipe.tags.each do |tag| %>
+        <div class="fa-solid fa-tag" style="color: black; margin-left:30px;">
+          <%= tag.name %>
+        </div>
+      <% end %>
 
       <table class="m-5">
         <tr>

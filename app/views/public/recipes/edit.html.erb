@@ -18,6 +18,16 @@
       <%= f.label :time, "所要時間", class: "col-2" %>
       <%= f.select :time, ['5分', '10分', '15分','20分', '25分', '30分','35分', '40分', '45分','50分', '55分', '60分以上'], {include_blank: '選択ボックス'}, class: 'sample col-2' %>
     </div>
+    
+    <div class="check_box row m-4">
+        <span class="col-2">カテゴリ</span>
+        <% Tag.all.each do |tag| %>
+          <div style="padding-left:200px;">
+            <%= f.check_box :tag_ids, { multiple: true }, tag.id, nil %>
+            <%= f.label tag.name %>
+          </div>
+        <% end %>
+      </div>
 
     <div class="row m-4">
       <%= f.label :material, "材料(2人分)", class: "col-2" %>

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PostTagTest < ActiveSupport::TestCase
+class RecipeTagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

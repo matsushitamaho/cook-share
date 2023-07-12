@@ -6,44 +6,58 @@
   </div>
   <div class="row my-5">
     <div class="col-8">
-      <h3>新着レシピ</h3>
+      <p style="font-size:70px;color:#EEEEEE;">RANKING</p>
+      <p style="font-size:25px;">ランキング</p>
         <div class="row my-4">
-          <% @recipes.each do |recipe| %>
-            <div class="card col-sm-auto m-3 float1">
-              <%= link_to recipe_path(recipe) do %>
-                <div class="img-wrap">
-                  <% if recipe.image.present? %>
-                    <%= image_tag recipe.image, width: 200, height: 160, class: "img-resize, rounded mx-auto d-block" %>
-                  <% else %>
-                    <%= image_tag "no_image.jpg", width: 200, height: 160, class: "img-resize, rounded mx-auto d-block" %>
-                  <% end %>
-                </div>
-              <% end %>
-                <div class="px-3">
-                  <h4><%= recipe.name %></h4>
-                  <p class="mb-0"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= recipe.time %></p>
-                </div>
-                <div class="d-flex my-3">
-                  <% if recipe.favorited_by?(current_customer) %>
-                    <p>
-                      <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
-                        <div style="color:red">♥</div><%= recipe.favorites.count %>
+          <table>
+            <thead>
+              <tr>
+                <th style="font-size: 25px;color: #FFD700;"><i class="fa-solid fa-crown"></i>1</th>
+                <th style="font-size: 25px;color: #C0C0C0"><i class="fa-solid fa-crown"></i>2</th>
+                <th style="font-size: 25px;color: #8C5B20"><i class="fa-solid fa-crown"></i>3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @recipes.each do |recipe| %>
+              <td>
+                <div class="card col-sm-auto m-3 float1">
+                  <%= link_to recipe_path(recipe) do %>
+                    <div class="img-wrap">
+                      <% if recipe.image.present? %>
+                        <%= image_tag recipe.image, width: 200, height: 140, class: "img-resize, rounded mx-auto d-block" %>
+                      <% else %>
+                        <%= image_tag "no_image.jpg", width: 200, height: 140, class: "img-resize, rounded mx-auto d-block" %>
                       <% end %>
-                    </p>
-                  <% else %>
-                    <p>
-                      <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
-                        ♡<%= recipe.favorites.count %>
-                      <% end %>
-                    </p>
+                    </div>
                   <% end %>
-                  <div class="mt-2" style="margin-left:15px;">
-                    <i class="fa-regular fa-comment" style="color: #000000;"></i>
-                    <%= recipe.post_comments.count %>
+                  <div class="px-3">
+                    <h4><%= recipe.name %></h4>
+                    <p class="mb-0"><i class="fa-regular fa-clock" style="color: #000000;"></i><%= recipe.time %></p>
+                  </div>
+                  <div class="d-flex my-3">
+                    <% if recipe.favorited_by?(current_customer) %>
+                      <p>
+                        <%= button_to recipe_favorites_path(recipe), method: :delete, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
+                          <div style="color:red">♥</div><%= recipe.favorites.count %>
+                        <% end %>
+                      </p>
+                    <% else %>
+                      <p>
+                        <%= button_to recipe_favorites_path(recipe), method: :post, class: 'btn d-flex align-items-center', style: 'color: black;border-color:#F5F5F5;' do %>
+                          ♡<%= recipe.favorites.count %>
+                        <% end %>
+                      </p>
+                    <% end %>
+                    <div class="mt-2" style="margin-left:15px;">
+                      <i class="fa-regular fa-comment" style="color: #000000;"></i>
+                      <%= recipe.post_comments.count %>
+                    </div>
                   </div>
                 </div>
-            </div>
-          <% end %>
+              </td>
+              <% end %>
+            </tbody>
+          </table>
         </div>
         <div class="my-3 text-right">
           <%= link_to "レシピ一覧へ▷▷", recipes_path, class: "nav-link", style: "color: black;" %>

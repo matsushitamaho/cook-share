@@ -1,7 +1,11 @@
 <div class="container my-5">
   <div class="row" style="margin-top:100px;">
     <div class="col">
-      <%= image_tag @recipe.image, width:400, heigth:250,class: "img-resize, rounded mx-auto d-block" %>
+      <% if @recipe.image.present? %>
+        <%= image_tag @recipe.image, width: 400, height: 250, class: "img-resize, rounded mx-auto d-block" %>
+      <% else %>
+        <%= image_tag "no_image.jpg", width: 400, height: 250, class: "img-resize, rounded mx-auto d-block" %>
+      <% end %>
       <div class="d-flex align-items-center">
         <h1 class="mt-5 px-5 border-bottom border-3" style="display: flex; align-items: center;">
           <%= @recipe.name %>
@@ -30,14 +34,14 @@
       <table class="m-5">
         <tr>
           <th style="width:80px;">材料</th>
-          <td><%= @recipe.material %></td>
+          <td><%= @recipe.material.gsub("\n", "<br>").html_safe %></td>
         </tr>
       </table>
 
       <table class="m-5">
         <tr>
           <th style="width:80px;">作り方</th>
-          <td><%= @recipe.make %></td>
+          <td><%= @recipe.make.gsub("\n", "<br>").html_safe %></td>
         </tr>
       </table>
 

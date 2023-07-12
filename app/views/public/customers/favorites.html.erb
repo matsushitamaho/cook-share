@@ -11,7 +11,11 @@
               <div class="card col-sm-auto m-2 float1">
                 <%= link_to recipe_path(recipe) do %>
                   <div class="img-wrap">
-                    <%= image_tag recipe.image, width: 220, height: 160, class: "img-resize sized mb-3 pt-3" %>
+                    <% if recipe.image.present? %>
+                      <%= image_tag recipe.image, width: 220, height: 160, class: "img-resize, rounded mx-auto d-block" %>
+                    <% else %>
+                      <%= image_tag "no_image.jpg", width: 220, height: 160, class: "img-resize, rounded mx-auto d-block" %>
+                    <% end %>
                   </div>
                 <% end %>
                   <div class="px-1">

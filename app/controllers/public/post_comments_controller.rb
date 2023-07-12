@@ -11,6 +11,7 @@ class Public::PostCommentsController < ApplicationController
     comment = recipe.post_comments.new(post_comment_params)
     comment.customer = current_customer
     comment.save
+    flash[:success] = "コメントしました！"
     redirect_to recipe_path(recipe)
   end
 
@@ -19,6 +20,7 @@ class Public::PostCommentsController < ApplicationController
     comment = PostComment.find_by(id: params[:id])
     if comment
       comment.destroy
+      flash[:success] = "コメントを消去しました。"
       redirect_to request.referer
     else
       redirect_to recipe_path(recipe)

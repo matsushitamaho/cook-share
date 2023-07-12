@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "bootstrap";
+@import "toastr";
 @charset "utf-8";/*カーソルを合わせると浮き上がる*/
 
 .header {
@@ -68,7 +69,7 @@ body {
 .body-content {
   flex: 1;
   padding-top: 10px;
-  margin-top: 60px; /* ヘッダーの高さに合わせてマージンを設定 */
+  margin-top: 80px; /* ヘッダーの高さに合わせてマージンを設定 */
 }
 
 .card {

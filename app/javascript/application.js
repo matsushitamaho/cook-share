@@ -6,3 +6,13 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
+
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require toastr #これを追加します。
+//= require_tree .

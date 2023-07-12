@@ -4,9 +4,13 @@
     <header class="header">
       <nav class="navbar navbar-expand-lg" >
           <div class="container-fluid" >
-            <a href="/" >
+            <a href="/admin" >
               <%= image_tag "logo1",size: "160x50" %>
             </a>
+            
+            <div class="mt-4">
+              <p>Hello!</p>
+            </div>
 
           <div>
             <ul class="navbar-nav ml-auto m-2 d-flex">
@@ -71,6 +75,10 @@
             <a href="/" >
               <%= image_tag "logo1",size: "160x50" %>
             </a>
+            
+            <div class="mt-4">
+              <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+            </div>
 
             <div>
               <ul class="navbar-nav ml-auto m-2 d-flex">
@@ -107,6 +115,10 @@
             <a href="/" >
               <%= image_tag "logo1",size: "160x50" %>
             </a>
+            
+            <div class="mt-4">
+              <p>Welcome to Cook Share!</p>
+            </div>
 
             <div>
               <ul class="navbar-nav ml-auto m-2">

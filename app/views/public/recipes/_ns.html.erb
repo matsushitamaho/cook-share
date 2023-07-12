@@ -1,5 +1,14 @@
 <div class="col-4" style="margin-top:50px;padding-left:30px;">
   <div class="row">
+    <% if flash[:success] %>
+      <div class="alert alert-success" style="width:200px;">
+        <%= flash[:success] %>
+      </div>
+    <% else %>
+      <div class="alert alert-error" style="width:200px;">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
     <div type="button" class="btn btn-outline-secondary nav-link" style="width:300px;">
       <span>
         <%= link_to "レシピを投稿する▷▷", "/recipes/new", class: 'nav-link fa-solid fa-utensils', style: 'color: black;'  %>

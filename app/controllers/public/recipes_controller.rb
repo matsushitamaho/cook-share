@@ -30,8 +30,10 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.customer_id = current_customer.id
     if @recipe.save
+      flash[:success] = "投稿しました！"
       redirect_to recipe_path(@recipe.id)
     else
+      flash[:error] = "投稿に失敗しました..."
       render :new
     end
   end
@@ -39,8 +41,10 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
+      flash[:success] = "更新しました！"
       redirect_to recipe_path(@recipe.id)
     else
+      flash[:error] = "更新に失敗しました..."
       render :edit
     end
   end

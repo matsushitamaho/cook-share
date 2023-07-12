@@ -7,8 +7,9 @@
     <thead class="bg-light">
       <tr>
         <th>会員名</th>
-        <th style="width:500px;">コメントしたレシピ</th>
-        <th style="width:500px;">コメント内容</th>
+        <th style="width:120px;">レシピ名</th>
+        <th style="width:280px;"></th>
+        <th style="width:520px;">コメント内容</th>
         <th></th>
       </tr>
     </thead>
@@ -16,7 +17,12 @@
       <% @post_comments.each do |post_comment| %>
         <tr>
           <td><%= post_comment.customer.last_name %><%= post_comment.customer.first_name %></td>
-          <td><%= image_tag post_comment.recipe.image, width: 100, height: 70, class: "img-resize sized m-3" %><%= post_comment.recipe.name %></td>
+          <td><% if post_comment.recipe.image.present? %>
+                <%= image_tag post_comment.recipe.image, width: 100, height: 70, class: "img-resize, rounded mx-auto d-block" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", width: 100, height: 70, class: "img-resize, rounded mx-auto d-block" %>
+              <% end %></td>
+          <td><%= post_comment.recipe.name %></td>
           <td><%= post_comment.comment %></td>
           <td><%= button_to "削除", recipe_post_comment_path(post_comment.recipe, post_comment), method: :delete, class: "btn btn-outline-secondary nav-link py-1", style: 'color: black; width: 70px;', form: { class: "d-inline" } %></td>
         </tr>

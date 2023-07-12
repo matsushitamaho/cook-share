@@ -3,19 +3,13 @@
     <div class="col-12" style="font-size:70px;color:#EEEEEE;">NEW</div>
     <div class="col-12" style="font-size:25px;">レシピ投稿</div>
 
-    <div style="margin-top: 50px;margin-left: 20px;">
+    <div style="margin-top: 50px;margin-left: 20px;color:red;">
       <% if @recipe.errors.any? %>
-        以下の項目を記入してください
-        <ul class="navbar-nav">
-          <% @recipe.errors.full_messages.each do |message| %>
-            <li class="nav-item"><%= message %></li>
-          <% end %>
-        </ul>
+        ※全ての項目を入力してください！
       <% end %>
     </div>
 
-
-
+    <div class="field_with_errors">
     <%= form_with model: @recipe, local: true do |f| %>
       <div class="row m-4">
         <%= f.label :image, "レシピ画像", class: "col-2"%>
@@ -60,5 +54,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>

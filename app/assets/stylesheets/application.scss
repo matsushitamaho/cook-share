@@ -36,6 +36,10 @@ body {
   min-height: 100vh;/*body全体の表示領域を確保*/
 }
 
+.field_with_errors {
+  display: contents;/*バリデーションエラーが発生した時レイアウトが崩れないようにする*/
+}
+
 /*== 影がついて浮き上がる */
 /*ボタンの形状*/
 .float1{

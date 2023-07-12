@@ -5,8 +5,12 @@
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
-  
+    <div style="margin-top: 50px; margin-bottom:20px; margin-left:30px; color:red;">
+      <% if resource.errors.any? %>
+        ※全ての項目を入力してください！
+      <% end %>
+    </div>
+
     <div class="form-field row mx-5 py-1">
       <div class="col-lg-3">
         <p>名前</p>
@@ -35,7 +39,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-lg-6", :placeholder => "aaaaaa@gmail.com" %>
       </div>
     </div>
-    
+
     <div class="form-field row mx-5 pb-3">
       <div class="col-lg-4">
         <%= f.label :password, "パスワード" %>
@@ -56,7 +60,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-lg-6" %>
       </div>
     </div>
-    
+
     <div class="form-field row mx-5 pb-3">
       <div class="col-lg-4">
       </div>

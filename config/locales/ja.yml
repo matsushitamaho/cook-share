@@ -6,3 +6,16 @@ ja:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "..."
+  activerecord:
+    errors:
+      models:
+        recipe:
+          attributes:
+            name:
+              blank: ""
+            time:
+              blank: ""
+            material:
+              blank: ""
+            make:
+              blank: ""

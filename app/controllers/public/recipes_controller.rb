@@ -33,7 +33,6 @@ class Public::RecipesController < ApplicationController
       flash[:success] = "投稿しました！"
       redirect_to recipe_path(@recipe.id)
     else
-      flash[:error] = "投稿に失敗しました..."
       render :new
     end
   end
@@ -44,7 +43,6 @@ class Public::RecipesController < ApplicationController
       flash[:success] = "更新しました！"
       redirect_to recipe_path(@recipe.id)
     else
-      flash[:error] = "更新に失敗しました..."
       render :edit
     end
   end

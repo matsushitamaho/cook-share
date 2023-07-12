@@ -3,6 +3,19 @@
     <div class="col-12 text-light" style="font-size:70px;">NEW</div>
     <div class="col-12" style="font-size:25px;">レシピ投稿</div>
 
+    <div style="margin-top: 50px;margin-left: 20px;">
+      <% if @recipe.errors.any? %>
+        以下の項目を記入してください
+        <ul class="navbar-nav">
+          <% @recipe.errors.full_messages.each do |message| %>
+            <li class="nav-item"><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+
+
     <%= form_with model: @recipe, local: true do |f| %>
       <div class="row m-4">
         <%= f.label :image, "レシピ画像", class: "col-2"%>

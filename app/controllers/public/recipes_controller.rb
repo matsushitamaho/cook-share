@@ -52,7 +52,7 @@ class Public::RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
-  
+
   def search
     @recipes = Recipe.where('name LIKE ?', "%#{params[:query]}%")
     render 'search_result'

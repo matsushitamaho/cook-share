@@ -3,6 +3,12 @@
     <div class="col-12 text-light" style="font-size: 70px;">COMMENT</div>
     <div class="col-12" style="font-size: 25px;">コメントする</div>
   </div>
+  
+  <div style="margin-top: 50px; margin-left: 20px; color: red;">
+    <% if @post_comment.errors.any? %>
+      ※入力してください！
+    <% end %>
+  </div>
 
   <div class="row my-5 justify-content-center">
     <div class="col-8">

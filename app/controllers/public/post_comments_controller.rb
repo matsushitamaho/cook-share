@@ -7,12 +7,15 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def create
-    recipe = Recipe.find(params[:recipe_id])
-    comment = recipe.post_comments.new(post_comment_params)
-    comment.customer = current_customer
-    comment.save
-    flash[:success] = "コメントしました！"
-    redirect_to recipe_path(recipe)
+    @recipe = Recipe.find(params[:recipe_id])
+    @post_comment = @recipe.post_comments.new(post_comment_params)
+    @post_comment.customer = current_customer
+    if @post_comment.save
+      flash[:success] = "コメントしました！"
+      redirect_to recipe_path(@recipe)
+    else
+      render :new
+    end
   end
 
 

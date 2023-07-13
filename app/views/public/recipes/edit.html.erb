@@ -2,6 +2,12 @@
   <div class="row m-4">
     <div class="col-12" style="font-size:70px;color:#EEEEEE;">EDIT</div>
     <div class="col-12" style="font-size:25px;">レシピ編集</div>
+    
+    <div style="margin-top: 50px;margin-left: 20px;color:red;">
+      <% if @recipe.errors.any? %>
+        ※全ての項目を入力してください！(画像はどちらでも可)
+      <% end %>
+    </div>
 
     <%= form_with model: @recipe, local: true do |f| %>
     <div class="row m-4">

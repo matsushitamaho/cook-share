@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   validates :time,     presence: true
   validates :material, presence: true
   validates :make,     presence: true
-  validates :tag_ids, presence: true
+  validates :tag_ids,  presence: true
   
   def favorited_by?(customer)
     if customer.present?

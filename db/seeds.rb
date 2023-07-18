@@ -96,7 +96,7 @@ Recipe.create!( [
     customer_id: customers[1].id },
 
 
-   {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/ラーメン.jpg"), filename:"牛丼.jpg"),
+   {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/牛丼.jpg"), filename:"牛丼.jpg"),
     name: '牛丼',
     time: '15分',
     tag_ids: [tags[1].id],
@@ -179,7 +179,7 @@ Recipe.create!( [
     make: %Q{１  キャベツは粗みじん切りにします。\n
              ２  豚バラ肉は３等分に切ります。\n
              ３  ボウルに(A)を入れよく混ぜ合わせます。よく混ざったら、１、(B)を加えてさらに混ぜ合わせます。\n
-             ４  フライパンにサラダ油をひき中火で熱します。温ま���たら生地を円形に流し入れ、上に２を並べます。\n
+             ４  フライパンにサラダ油をひき中火で熱します。温まったら生地を円形に流し入れ、上に２を並べます。\n
              ５  底面に焼き色がついたら裏返し、蓋をして中火のまま２分間蒸し焼きにします。中まで焼けたら火から下ろします。\n
              ６  器に盛り付け、お好み焼きソースを塗ります。マヨネーズ、青のり、かつお節を乗せたら完成です。},
     customer_id: customers[5].id },

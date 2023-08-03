@@ -1,8 +1,6 @@
 class Public::HomesController < ApplicationController
  def top
-  @recipes = Recipe.includes(:favorited_customers)
-                   .sort_by { |recipe| -recipe.favorited_customers.size }
-                   .take(3)
+  @recipes = Recipe.left_joins(:favorites).group(:id).order("count(favorites.recipe_id) desc").limit(3)
  end
 
   def about

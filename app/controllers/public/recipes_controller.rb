@@ -1,14 +1,15 @@
 class Public::RecipesController < ApplicationController
   before_action :authenticate_customer!, only:  [:new, :edit, :create, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     #カテゴリ検索して見つかった場合、レシピ一覧に9つずつ表示
     if params[:tag_id].present?
       tag = Tag.find(params[:tag_id])
-      @recipes = tag.recipes.page(params[:page]).per(9)
+      @recipes = tag.recipes.page(params[:page]).per(9).order(created_at: :desc)
     else
     #普通にレシピ一覧を表示する
-      @recipes = Recipe.page(params[:page]).per(9)
+      @recipes = Recipe.page(params[:page]).per(9).order(created_at: :desc)
     end
   end
 
@@ -62,5 +63,11 @@ class Public::RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:image, :name, :time, :material, :make, tag_ids: [])
+  end
+  
+  def correct_user
+    @recipe = Recipe.find(params[:id])
+    @customer = @recipe.customer_id
+    redirect_to(recipes_path) unless @customer == current_customer
   end
 end

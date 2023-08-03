@@ -25,7 +25,7 @@
                   <%= link_to recipe_path(recipe) do %>
                     <div class="img-wrap">
                       <% if recipe.image.present? %>
-                        <%= image_tag recipe.image, width: 200, height: 140, class: "img-resize, rounded mx-auto d-block" %>
+                        <%= image_tag recipe.image, width: 200, height: 140, class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
                       <% else %>
                         <%= image_tag "no_image.jpg", width: 200, height: 140, class: "img-resize, rounded mx-auto d-block" %>
                       <% end %>

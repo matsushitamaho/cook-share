@@ -2,7 +2,7 @@
   <div class="row" style="margin-top:100px;">
     <div class="col">
       <% if @recipe.image.present? %>
-        <%= image_tag @recipe.image, width: 400, height: 250, class: "img-resize, rounded mx-auto d-block" %>
+        <%= image_tag @recipe.image, width: 400, height: 250, class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
       <% else %>
         <%= image_tag "no_image.jpg", width: 400, height: 250, class: "img-resize, rounded mx-auto d-block" %>
       <% end %>
@@ -31,19 +31,33 @@
         </div>
       <% end %>
 
-      <table class="m-5">
-        <tr>
-          <th style="width:80px;">材料</th>
-          <td><%= @recipe.material.gsub("\n", "<br>").html_safe %></td>
-        </tr>
+      <table class="table m-5" style="width:700px;">
+        <thead class="bg-light">
+          <tr>
+            <th>材料</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @recipe.material.gsub("\n", "<br>").html_safe %></td>
+          </tr>
+        </tbody>
       </table>
 
-      <table class="m-5">
-        <tr>
-          <th style="width:80px;">作り方</th>
-          <td><%= @recipe.make.gsub("\n", "<br>").html_safe %></td>
-        </tr>
+      <table class="table m-5" style="width:700px;">
+        <thead class="bg-light">
+          <tr>
+            <th>作り方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @recipe.make.gsub("\n", "<br>").html_safe %></td>
+          </tr>
+        </tbody>
       </table>
+      
+       <p>（作成日：<%= @recipe.created_at.strftime('%Y/%m/%d') %>）</p>
 
       <div class="row mt-5 mb-5 justify-content-center">
         <% if current_customer && current_customer.id == @recipe.customer_id %>
